@@ -40,6 +40,16 @@ The debug script and its `modDesc.xml` source-file entry can be removed without 
 Report issues on GitHub:
 https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
 
+## License and Distribution
+
+The Lua source code in the `scripts` directory is licensed under the MIT
+License. Forking, modifying, and distributing that code is permitted under
+the terms of the license.
+
+The official mod name, icon, branding, descriptions, and release packages are
+not covered by the MIT License. See [DISTRIBUTION.md](DISTRIBUTION.md) for the
+distribution and branding policy.
+
 ## Changelog
 
 ### Version 1.0.0.0
