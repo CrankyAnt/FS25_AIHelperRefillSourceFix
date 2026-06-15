@@ -1,7 +1,5 @@
 # MIT License
 
-## Scope: Lua source code only; see [DISTRIBUTION.md](DISTRIBUTION.md) for branding and official release policy
-
 ## Copyright
 
 Copyright (c) 2026 CrankyAnt
