@@ -42,13 +42,14 @@ https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
 
 ## License and Distribution
 
-The Lua source code in the `scripts` directory is licensed under the MIT
-License. Forking, modifying, and distributing that code is permitted under
-the terms of the license.
+This repository uses per-file licensing according to the REUSE specification.
+See [REUSE.toml](REUSE.toml) for the authoritative machine-readable license
+assignment.
 
-The official mod name, icon, branding, descriptions, and release packages are
-not covered by the MIT License. See [DISTRIBUTION.md](DISTRIBUTION.md) for the
-distribution and branding policy.
+The functional Lua source code is licensed under the MIT License. The official
+mod name, icon, branding, descriptions, and release packages are covered by
+the separate CrankyAnt Official Assets License. See
+[DISTRIBUTION.md](DISTRIBUTION.md) for a human-readable explanation.
 
 ## Changelog
 
