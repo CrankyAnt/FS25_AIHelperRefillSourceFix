@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="107" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
+    <author>CrankyAnt</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>AI Helper Refill Source Fix</en>
+        <de>KI-Helfer Nachfüllquellen-Fix</de>
+        <fr>Correctif des sources de remplissage de l'ouvrier IA</fr>
+        <nl>AI-helper bijvulbron fix</nl>
+    </title>
+
+    <description>
+        <en><![CDATA[AI Helper Refill Source Fix
+
+Fixes incorrect and inaccessible refill source selections for AI helpers using liquid manure or manure.
+
+The base game stores helper refill sources in an internal list, while the settings menu can display a filtered version of that list. This can cause the menu to show a different source than the source actually used by the helper. The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with a "tank is empty" message.
+
+This mod:
+- keeps the displayed liquid manure and manure source synchronized with the source actually selected
+- hides manure sources that the active farm cannot access
+- supports changing farms in multiplayer
+- works dynamically when sources are added during gameplay
+
+The mod does not add helper support to storage types or placeables that are not registered as valid helper refill sources by the game.
+
+Multiplayer supported.
+PC only, because it is a script mod.
+
+Report issues on GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
+
+Changelog
+Version 1.0.0.0
+- Initial release
+]]></en>
+        <de><![CDATA[KI-Helfer Nachfüllquellen-Fix
+
+Behebt falsche und nicht zugängliche Nachfüllquellen für KI-Helfer, die Gülle oder Mist verwenden.
+
+Das Basisspiel speichert die Nachfüllquellen der Helfer in einer internen Liste, während das Einstellungsmenü eine gefilterte Version dieser Liste anzeigen kann. Dadurch kann das Menü eine andere Quelle anzeigen als die Quelle, die der Helfer tatsächlich verwendet. Das Mistmenü kann außerdem Quellen eines anderen Betriebs anzeigen, obwohl der Helfer sie nicht verwenden darf. Wird eine solche Quelle gewählt, stoppt der Helfer mit der Meldung, dass der Tank leer ist.
+
+Dieser Mod:
+- synchronisiert die angezeigte Gülle- und Mistquelle mit der tatsächlich ausgewählten Quelle
+- blendet Mistquellen aus, auf die der aktive Betrieb keinen Zugriff hat
+- unterstützt den Betriebswechsel im Mehrspielermodus
+- funktioniert dynamisch, wenn während des Spiels neue Quellen hinzugefügt werden
+
+Der Mod fügt keine Helferunterstützung für Lagertypen oder platzierbare Objekte hinzu, die vom Spiel nicht als gültige Nachfüllquelle registriert sind.
+
+Mehrspielermodus wird unterstützt.
+Nur für PC, da es sich um einen Script-Mod handelt.
+
+Fehlerberichte auf GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
+
+Changelog
+Version 1.0.0.0
+- Erste Veröffentlichung
+]]></de>
+        <fr><![CDATA[Correctif des sources de remplissage de l'ouvrier IA
+
+Corrige les sources de remplissage incorrectes ou inaccessibles pour les ouvriers IA utilisant du lisier ou du fumier.
+
+Le jeu de base conserve les sources de remplissage des ouvriers dans une liste interne, tandis que le menu des paramètres peut afficher une version filtrée de cette liste. Le menu peut donc afficher une source différente de celle réellement utilisée par l'ouvrier. Le menu du fumier peut également afficher des sources appartenant à une autre ferme, même si l'ouvrier n'est pas autorisé à les utiliser. La sélection d'une telle source provoque l'arrêt de l'ouvrier avec un message indiquant que le réservoir est vide.
+
+Ce mod :
+- synchronise la source de lisier et de fumier affichée avec la source réellement sélectionnée
+- masque les sources de fumier auxquelles la ferme active ne peut pas accéder
+- prend en charge le changement de ferme en multijoueur
+- fonctionne dynamiquement lorsque des sources sont ajoutées pendant la partie
+
+Le mod n'ajoute pas la prise en charge par les ouvriers des types de stockage ou objets placables qui ne sont pas enregistrés par le jeu comme sources de remplissage valides.
+
+Multijoueur pris en charge.
+PC uniquement, car il s'agit d'un mod script.
+
+Signalez les problèmes sur GitHub : https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
+
+Changelog
+Version 1.0.0.0
+- Première version
+]]></fr>
+        <nl><![CDATA[AI-helper bijvulbron fix
+
+Verhelpt onjuiste en ontoegankelijke bijvulbronnen voor AI-helpers die drijfmest of mest gebruiken.
+
+De basegame bewaart de bijvulbronnen voor helpers in een interne lijst, terwijl het instellingenmenu een gefilterde versie van die lijst kan tonen. Hierdoor kan het menu een andere bron weergeven dan de bron die de helper daadwerkelijk gebruikt. Het mestmenu kan daarnaast bronnen van een ander bedrijf tonen, terwijl de helper daar geen toegang toe heeft. Wanneer zo'n bron wordt geselecteerd, stopt de helper met de melding dat de tank leeg is.
+
+Deze mod:
+- houdt de weergegeven drijfmest- en mestbron gelijk aan de werkelijk geselecteerde bron
+- verbergt mestbronnen waar het actieve bedrijf geen toegang toe heeft
+- ondersteunt wisselen tussen bedrijven in multiplayer
+- werkt dynamisch wanneer tijdens het spelen nieuwe bronnen worden toegevoegd
+
+De mod voegt geen helperondersteuning toe aan opslagtypen of placeables die door de game niet als geldige bijvulbron zijn geregistreerd.
+
+Multiplayer wordt ondersteund.
+Alleen voor PC, omdat dit een scriptmod is.
+
+Meld problemen op GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
+
+Changelog
+Versie 1.0.0.0
+- Eerste release
+]]></nl>
+    </description>
+
+    <iconFilename>icons/icon.dds</iconFilename>
+    <multiplayer supported="true" />
+
+    <extraSourceFiles>
+        <sourceFile filename="scripts/AIHelperRefillSourceFix.lua" />
+        <sourceFile filename="scripts/AIHelperRefillSourceDebug.lua" />
+    </extraSourceFiles>
+</modDesc>
