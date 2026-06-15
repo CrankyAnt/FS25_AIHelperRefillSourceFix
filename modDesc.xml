@@ -14,7 +14,7 @@
 
 Fixes incorrect and inaccessible refill source selections for AI helpers using liquid manure or manure.
 
-The base game stores helper refill sources in an internal list, while the settings menu can display a filtered version of that list. This can cause the menu to show a different source than the source actually used by the helper. The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with a "tank is empty" message.
+The base game stores helper refill sources in an internal list, while the settings menu can display a filtered version of that list. This can cause the menu to show a different source than the source actually used by the helper. The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with the message "Tank is empty!"
 
 This mod:
 - keeps the displayed liquid manure and manure source synchronized with the source actually selected
@@ -37,12 +37,12 @@ Version 1.0.0.0
 
 Behebt falsche und nicht zugängliche Nachfüllquellen für KI-Helfer, die Gülle oder Mist verwenden.
 
-Das Basisspiel speichert die Nachfüllquellen der Helfer in einer internen Liste, während das Einstellungsmenü eine gefilterte Version dieser Liste anzeigen kann. Dadurch kann das Menü eine andere Quelle anzeigen als die Quelle, die der Helfer tatsächlich verwendet. Das Mistmenü kann außerdem Quellen eines anderen Betriebs anzeigen, obwohl der Helfer sie nicht verwenden darf. Wird eine solche Quelle gewählt, stoppt der Helfer mit der Meldung, dass der Tank leer ist.
+Das Basisspiel speichert die Nachfüllquellen der Helfer in einer internen Liste, während das Einstellungsmenü eine gefilterte Version dieser Liste anzeigen kann. Dadurch kann das Menü eine andere Quelle anzeigen als die Quelle, die der Helfer tatsächlich verwendet. Das Mistmenü kann außerdem Quellen eines anderen Hofes anzeigen, obwohl der Helfer sie nicht verwenden darf. Wird eine solche Quelle gewählt, stoppt der Helfer mit der Meldung „Tank ist leer!“
 
 Dieser Mod:
 - synchronisiert die angezeigte Gülle- und Mistquelle mit der tatsächlich ausgewählten Quelle
-- blendet Mistquellen aus, auf die der aktive Betrieb keinen Zugriff hat
-- unterstützt den Betriebswechsel im Mehrspielermodus
+- blendet Mistquellen aus, auf die der aktive Hof keinen Zugriff hat
+- unterstützt den Hofwechsel im Mehrspielermodus
 - funktioniert dynamisch, wenn während des Spiels neue Quellen hinzugefügt werden
 
 Der Mod fügt keine Helferunterstützung für Lagertypen oder platzierbare Objekte hinzu, die vom Spiel nicht als gültige Nachfüllquelle registriert sind.
@@ -60,7 +60,7 @@ Version 1.0.0.0
 
 Corrige les sources de remplissage incorrectes ou inaccessibles pour les ouvriers IA utilisant du lisier ou du fumier.
 
-Le jeu de base conserve les sources de remplissage des ouvriers dans une liste interne, tandis que le menu des paramètres peut afficher une version filtrée de cette liste. Le menu peut donc afficher une source différente de celle réellement utilisée par l'ouvrier. Le menu du fumier peut également afficher des sources appartenant à une autre ferme, même si l'ouvrier n'est pas autorisé à les utiliser. La sélection d'une telle source provoque l'arrêt de l'ouvrier avec un message indiquant que le réservoir est vide.
+Le jeu de base conserve les sources de remplissage des ouvriers dans une liste interne, tandis que le menu des paramètres peut afficher une version filtrée de cette liste. Le menu peut donc afficher une source différente de celle réellement utilisée par l'ouvrier. Le menu du fumier peut également afficher des sources appartenant à une autre ferme, même si l'ouvrier n'est pas autorisé à les utiliser. La sélection d'une telle source provoque l'arrêt de l'ouvrier avec le message « Le réservoir est vide ! »
 
 Ce mod :
 - synchronise la source de lisier et de fumier affichée avec la source réellement sélectionnée
@@ -83,12 +83,12 @@ Version 1.0.0.0
 
 Verhelpt onjuiste en ontoegankelijke bijvulbronnen voor AI-helpers die drijfmest of mest gebruiken.
 
-De basegame bewaart de bijvulbronnen voor helpers in een interne lijst, terwijl het instellingenmenu een gefilterde versie van die lijst kan tonen. Hierdoor kan het menu een andere bron weergeven dan de bron die de helper daadwerkelijk gebruikt. Het mestmenu kan daarnaast bronnen van een ander bedrijf tonen, terwijl de helper daar geen toegang toe heeft. Wanneer zo'n bron wordt geselecteerd, stopt de helper met de melding dat de tank leeg is.
+De basegame bewaart de bijvulbronnen voor helpers in een interne lijst, terwijl het instellingenmenu een gefilterde versie van die lijst kan tonen. Hierdoor kan het menu een andere bron weergeven dan de bron die de helper daadwerkelijk gebruikt. Het mestmenu kan daarnaast bronnen van een andere boerderij tonen, terwijl de helper daar geen toegang toe heeft. Wanneer zo'n bron wordt geselecteerd, stopt de helper met de melding "Tank is leeg!"
 
 Deze mod:
 - houdt de weergegeven drijfmest- en mestbron gelijk aan de werkelijk geselecteerde bron
-- verbergt mestbronnen waar het actieve bedrijf geen toegang toe heeft
-- ondersteunt wisselen tussen bedrijven in multiplayer
+- verbergt mestbronnen waar de actieve boerderij geen toegang toe heeft
+- ondersteunt wisselen tussen boerderijen in multiplayer
 - werkt dynamisch wanneer tijdens het spelen nieuwe bronnen worden toegevoegd
 
 De mod voegt geen helperondersteuning toe aan opslagtypen of placeables die door de game niet als geldige bijvulbron zijn geregistreerd.

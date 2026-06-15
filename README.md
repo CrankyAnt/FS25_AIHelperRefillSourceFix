@@ -6,7 +6,7 @@ Fixes incorrect and inaccessible refill source selections for Farming Simulator 
 
 The base game stores helper refill sources in an internal list, while the settings menu can display a filtered version of that list. This can cause the menu to show a different source than the source actually used by the helper.
 
-The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with a "tank is empty" message.
+The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with the message "Tank is empty!"
 
 This mod:
 
