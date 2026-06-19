@@ -1,21 +1,20 @@
 # AI Helper Refill Source Fix
 
-Fixes incorrect and inaccessible refill source selections for Farming Simulator 25 AI helpers using liquid manure or manure.
+AI Helper Refill Source Fix fixes base game issues with AI helper refill sources for slurry, digestate, and manure spreaders in Farming Simulator 25.
 
 ## What It Fixes
 
-The base game stores helper refill sources in an internal list, while the settings menu can display a filtered version of that list. This can cause the menu to show a different source than the source actually used by the helper.
+The base game stores helper refill sources in internal lists, while the settings menu can display a filtered version of those lists. This can cause the menu to show a different source than the source actually used by the helper.
 
-The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with the message "Tank is empty!"
+This mod keeps the refill source shown in the settings menu synchronized with the source actually used by the helper. That prevents helpers from drawing from a different storage than the one selected, or stopping with "Tank is empty!" while the selected source still contains material.
 
-This mod:
+The mod also fixes related helper refill issues:
 
-- Keeps displayed liquid manure and manure sources synchronized with the source actually selected.
 - Hides manure sources that the active farm cannot access.
-- Supports changing farms in multiplayer.
-- Handles sources added dynamically during gameplay.
+- Keeps multiplayer clients synchronized with the server after loading or joining.
+- Keeps digestate active when a slurry spreader is already using digestate and the selected source can supply it.
 
-The mod does not add helper support to storage types or placeables that are not registered as valid helper refill sources by the game.
+The mod does not add new refill sources. A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 ## Compatibility
 
@@ -55,4 +54,9 @@ the separate CrankyAnt Official Assets License. See
 
 ### Version 1.0.0.0
 
-- Initial release
+- Initial test release.
+- Fixes helper refill source menu synchronization for slurry and manure.
+- Filters inaccessible manure sources for the active farm.
+- Synchronizes multiplayer clients with the server after loading or joining.
+- Keeps digestate active when the spreader already uses digestate and the selected source can supply it.
+- Adds optional diagnostics for durability testing.
