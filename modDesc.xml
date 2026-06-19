@@ -12,17 +12,13 @@
     <description>
         <en><![CDATA[AI Helper Refill Source Fix
 
-Fixes incorrect and inaccessible refill source selections for AI helpers using liquid manure or manure.
+This mod fixes base game issues with AI helper refill sources for slurry, digestate, and manure spreaders.
 
-The base game stores helper refill sources in an internal list, while the settings menu can display a filtered version of that list. This can cause the menu to show a different source than the source actually used by the helper. The manure menu can also show sources owned by another farm, even though the helper is not allowed to use them. Selecting such a source causes the helper to stop with the message "Tank is empty!"
+The mod keeps the refill source shown in the settings menu synchronized with the source actually used by the helper. This prevents helpers from drawing from a different storage than the one selected, or stopping with "Tank is empty!" while the selected source still contains material.
 
-This mod:
-- keeps the displayed liquid manure and manure source synchronized with the source actually selected
-- hides manure sources that the active farm cannot access
-- supports changing farms in multiplayer
-- works dynamically when sources are added during gameplay
+It also hides manure sources that the active farm cannot access, keeps multiplayer clients synchronized with the server after loading or joining, and keeps digestate active when a spreader is already using digestate and the selected source can supply it.
 
-The mod does not add helper support to storage types or placeables that are not registered as valid helper refill sources by the game.
+The mod does not add new refill sources. A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 Multiplayer supported.
 PC only, because it is a script mod.
@@ -31,21 +27,16 @@ Report issues on GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceF
 
 Changelog
 Version 1.0.0.0
-- Initial release
-]]></en>
+- Initial release]]></en>
         <de><![CDATA[KI-Helfer Nachfüllquellen-Fix
 
-Behebt falsche und nicht zugängliche Nachfüllquellen für KI-Helfer, die Gülle oder Mist verwenden.
+Dieser Mod behebt Basisspiel-Probleme mit Nachfüllquellen von KI-Helfern für Gülle-, Gärreste- und Miststreuer.
 
-Das Basisspiel speichert die Nachfüllquellen der Helfer in einer internen Liste, während das Einstellungsmenü eine gefilterte Version dieser Liste anzeigen kann. Dadurch kann das Menü eine andere Quelle anzeigen als die Quelle, die der Helfer tatsächlich verwendet. Das Mistmenü kann außerdem Quellen eines anderen Hofes anzeigen, obwohl der Helfer sie nicht verwenden darf. Wird eine solche Quelle gewählt, stoppt der Helfer mit der Meldung „Tank ist leer!“
+Der Mod hält die im Einstellungsmenü angezeigte Nachfüllquelle mit der Quelle synchron, die der Helfer tatsächlich verwendet. Dadurch wird verhindert, dass Helfer aus einem anderen Lager entnehmen als ausgewählt, oder mit „Tank ist leer!“ stoppen, obwohl die ausgewählte Quelle noch Material enthält.
 
-Dieser Mod:
-- synchronisiert die angezeigte Gülle- und Mistquelle mit der tatsächlich ausgewählten Quelle
-- blendet Mistquellen aus, auf die der aktive Hof keinen Zugriff hat
-- unterstützt den Hofwechsel im Mehrspielermodus
-- funktioniert dynamisch, wenn während des Spiels neue Quellen hinzugefügt werden
+Außerdem blendet der Mod Mistquellen aus, auf die der aktive Hof keinen Zugriff hat, hält Mehrspieler-Clients nach dem Laden oder Beitreten mit dem Server synchron und behält Gärreste bei, wenn ein Streuer bereits Gärreste verwendet und die ausgewählte Quelle sie liefern kann.
 
-Der Mod fügt keine Helferunterstützung für Lagertypen oder platzierbare Objekte hinzu, die vom Spiel nicht als gültige Nachfüllquelle registriert sind.
+Der Mod fügt keine neuen Nachfüllquellen hinzu. Ein Lager oder platzierbares Objekt muss weiterhin vom Spiel als gültige Helfer-Nachfüllquelle registriert sein.
 
 Mehrspielermodus wird unterstützt.
 Nur für PC, da es sich um einen Script-Mod handelt.
@@ -54,21 +45,16 @@ Fehlerberichte auf GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourc
 
 Changelog
 Version 1.0.0.0
-- Erste Veröffentlichung
-]]></de>
+- Erste Veröffentlichung]]></de>
         <fr><![CDATA[Correctif des sources de remplissage de l'ouvrier IA
 
-Corrige les sources de remplissage incorrectes ou inaccessibles pour les ouvriers IA utilisant du lisier ou du fumier.
+Ce mod corrige des problèmes du jeu de base liés aux sources de remplissage des ouvriers IA pour les épandeurs de lisier, de digestat et de fumier.
 
-Le jeu de base conserve les sources de remplissage des ouvriers dans une liste interne, tandis que le menu des paramètres peut afficher une version filtrée de cette liste. Le menu peut donc afficher une source différente de celle réellement utilisée par l'ouvrier. Le menu du fumier peut également afficher des sources appartenant à une autre ferme, même si l'ouvrier n'est pas autorisé à les utiliser. La sélection d'une telle source provoque l'arrêt de l'ouvrier avec le message « Le réservoir est vide ! »
+Le mod synchronise la source affichée dans le menu des paramètres avec la source réellement utilisée par l'ouvrier. Cela évite que l'ouvrier puise dans un stockage différent de celui sélectionné, ou qu'il s'arrête avec « Le réservoir est vide ! » alors que la source sélectionnée contient encore du produit.
 
-Ce mod :
-- synchronise la source de lisier et de fumier affichée avec la source réellement sélectionnée
-- masque les sources de fumier auxquelles la ferme active ne peut pas accéder
-- prend en charge le changement de ferme en multijoueur
-- fonctionne dynamiquement lorsque des sources sont ajoutées pendant la partie
+Il masque aussi les sources de fumier auxquelles la ferme active ne peut pas accéder, garde les clients multijoueur synchronisés avec le serveur après le chargement ou la connexion, et conserve le digestat lorsqu'un épandeur l'utilise déjà et que la source sélectionnée peut en fournir.
 
-Le mod n'ajoute pas la prise en charge par les ouvriers des types de stockage ou objets placables qui ne sont pas enregistrés par le jeu comme sources de remplissage valides.
+Le mod n'ajoute pas de nouvelles sources de remplissage. Un stockage ou objet placable doit toujours être enregistré par le jeu comme source de remplissage valide pour les ouvriers.
 
 Multijoueur pris en charge.
 PC uniquement, car il s'agit d'un mod script.
@@ -77,21 +63,16 @@ Signalez les problèmes sur GitHub : https://github.com/CrankyAnt/FS25_AIHelperR
 
 Changelog
 Version 1.0.0.0
-- Première version
-]]></fr>
+- Première version]]></fr>
         <nl><![CDATA[AI-helper bijvulbron fix
 
-Verhelpt onjuiste en ontoegankelijke bijvulbronnen voor AI-helpers die drijfmest of mest gebruiken.
+Deze mod verhelpt basegame-problemen met bijvulbronnen voor AI-helpers bij drijfmest-, digestaat- en mestverspreiders.
 
-De basegame bewaart de bijvulbronnen voor helpers in een interne lijst, terwijl het instellingenmenu een gefilterde versie van die lijst kan tonen. Hierdoor kan het menu een andere bron weergeven dan de bron die de helper daadwerkelijk gebruikt. Het mestmenu kan daarnaast bronnen van een andere boerderij tonen, terwijl de helper daar geen toegang toe heeft. Wanneer zo'n bron wordt geselecteerd, stopt de helper met de melding "Tank is leeg!"
+De mod houdt de bijvulbron die in het instellingenmenu wordt getoond gelijk aan de bron die de helper werkelijk gebruikt. Daardoor wordt voorkomen dat helpers uit een andere opslag putten dan de geselecteerde bron, of stoppen met "Tank is leeg!" terwijl de geselecteerde bron nog materiaal bevat.
 
-Deze mod:
-- houdt de weergegeven drijfmest- en mestbron gelijk aan de werkelijk geselecteerde bron
-- verbergt mestbronnen waar de actieve boerderij geen toegang toe heeft
-- ondersteunt wisselen tussen boerderijen in multiplayer
-- werkt dynamisch wanneer tijdens het spelen nieuwe bronnen worden toegevoegd
+Daarnaast verbergt de mod mestbronnen waar de actieve boerderij geen toegang toe heeft, houdt hij multiplayer-clients na laden of joinen gelijk aan de server, en blijft digestaat actief wanneer een verspreider al digestaat gebruikt en de geselecteerde bron dat kan leveren.
 
-De mod voegt geen helperondersteuning toe aan opslagtypen of placeables die door de game niet als geldige bijvulbron zijn geregistreerd.
+De mod voegt geen nieuwe bijvulbronnen toe. Een opslag of placeable moet nog steeds door de game zijn geregistreerd als geldige bijvulbron voor helpers.
 
 Multiplayer wordt ondersteund.
 Alleen voor PC, omdat dit een scriptmod is.
@@ -100,8 +81,7 @@ Meld problemen op GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSource
 
 Changelog
 Versie 1.0.0.0
-- Eerste release
-]]></nl>
+- Eerste release]]></nl>
     </description>
 
     <iconFilename>icons/icon.dds</iconFilename>

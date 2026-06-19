@@ -1,4 +1,4 @@
-﻿-- Helper Spreader Refill Debug
+-- Helper Spreader Refill Debug
 -- Diagnostic-only tooling for tracing AI helper liquid manure and manure sources.
 
 AIHelperRefillSourceDebug = {
@@ -20,6 +20,43 @@ local AIHelperRefillSourceDebug_mt = Class(AIHelperRefillSourceDebug)
 local collectSourceStorages
 local storageIsRelevantToLocalFarm
 
+AIHelperRefillDebugToggleEvent = {}
+local AIHelperRefillDebugToggleEvent_mt = Class(AIHelperRefillDebugToggleEvent, Event)
+InitEventClass(AIHelperRefillDebugToggleEvent, "AIHelperRefillDebugToggleEvent")
+
+function AIHelperRefillDebugToggleEvent.emptyNew()
+    return Event.new(AIHelperRefillDebugToggleEvent_mt)
+end
+
+function AIHelperRefillDebugToggleEvent.new(enabled)
+    local self = AIHelperRefillDebugToggleEvent.emptyNew()
+    self.enabled = enabled == true
+    return self
+end
+
+function AIHelperRefillDebugToggleEvent:writeStream(streamId, connection)
+    streamWriteBool(streamId, self.enabled == true)
+end
+
+function AIHelperRefillDebugToggleEvent:readStream(streamId, connection)
+    self.enabled = streamReadBool(streamId)
+    self:run(connection)
+end
+
+function AIHelperRefillDebugToggleEvent:run(connection)
+    if g_currentMission ~= nil
+        and g_currentMission.getIsServer ~= nil
+        and g_currentMission:getIsServer()
+        and g_aiHelperRefillSourceDebug ~= nil then
+        g_aiHelperRefillSourceDebug:setEnabled(self.enabled, "server-event", true)
+    end
+end
+
+function AIHelperRefillDebugToggleEvent.sendToServer(enabled)
+    if g_server == nil and g_client ~= nil and g_client.getServerConnection ~= nil then
+        g_client:getServerConnection():sendEvent(AIHelperRefillDebugToggleEvent.new(enabled))
+    end
+end
 local function getFillTypeName(fillType)
     if fillType == nil then
         return "nil"
@@ -671,27 +708,37 @@ function AIHelperRefillSourceDebug:deleteMap()
     self.fixedRegistrations = setmetatable({}, {__mode="k"})
 end
 
-function AIHelperRefillSourceDebug:consoleCommandToggle()
-    self.enabled = not self.enabled
+function AIHelperRefillSourceDebug:setEnabled(enabled, reason, skipServerRequest)
+    self.enabled = enabled == true
     self.missionElapsedMs = 0
     self.snapshotElapsedMs = 0
     self.initialDumpDone = false
     self.lastSnapshotKey = nil
     self.hudLines = {}
+    self.removalEvents = {}
+    self.externalFillEvents = {}
+    self.lastOutOfFillLogTime = {}
+
+    if not skipServerRequest then
+        AIHelperRefillDebugToggleEvent.sendToServer(self.enabled)
+    end
 
     if self.enabled then
-        self:log("Diagnostics enabled")
-        self:dumpState("console-enabled")
+        self:log("Diagnostics enabled reason=%s", tostring(reason or "manual"))
+        self:dumpState(reason or "enabled")
         self.initialDumpDone = true
         self.lastSnapshotKey = self:buildSnapshotKey()
         self.hudLines = self:buildHud()
         return "AI helper refill source diagnostics enabled"
     end
 
-    self:log("Diagnostics disabled")
+    self:log("Diagnostics disabled reason=%s", tostring(reason or "manual"))
     return "AI helper refill source diagnostics disabled"
 end
 
+function AIHelperRefillSourceDebug:consoleCommandToggle()
+    return self:setEnabled(not self.enabled, "console-command", false)
+end
 function AIHelperRefillSourceDebug:log(message, ...)
     print(string.format("%s %s", self.TAG, string.format(message, ...)))
 end
@@ -1659,7 +1706,7 @@ local originalRemoveFillLevel = LoadingStation.removeFillLevel
 LoadingStation.removeFillLevel = function(station, fillTypeIndex, fillDelta, farmId)
     if g_aiHelperRefillSourceDebug == nil
         or not g_aiHelperRefillSourceDebug.enabled
-        or (fillTypeIndex ~= FillType.LIQUIDMANURE and fillTypeIndex ~= FillType.MANURE) then
+        or (fillTypeIndex ~= FillType.LIQUIDMANURE and fillTypeIndex ~= FillType.DIGESTATE and fillTypeIndex ~= FillType.MANURE) then
         return originalRemoveFillLevel(station, fillTypeIndex, fillDelta, farmId)
     end
 
@@ -1669,29 +1716,25 @@ LoadingStation.removeFillLevel = function(station, fillTypeIndex, fillDelta, far
     end
 
     local remainingDelta = originalRemoveFillLevel(station, fillTypeIndex, fillDelta, farmId)
-    local removedTotal = fillDelta - remainingDelta
-
-    if removedTotal > 0.0001 then
-        local storageChanges = {}
-        for storage, oldLevel in pairs(before) do
-            local newLevel = storage:getFillLevel(fillTypeIndex)
-            if math.abs(oldLevel - newLevel) > 0.0001 then
-                storageChanges[storage] = {
-                    before = oldLevel,
-                    after = newLevel,
-                    delta = newLevel - oldLevel
-                }
-            end
+    local storageChanges = {}
+    for storage, oldLevel in pairs(before) do
+        local newLevel = storage:getFillLevel(fillTypeIndex)
+        if math.abs(oldLevel - newLevel) > 0.0001 then
+            storageChanges[storage] = {
+                before = oldLevel,
+                after = newLevel,
+                delta = newLevel - oldLevel
+            }
         end
-
-        g_aiHelperRefillSourceDebug:recordRemoval(
-            station,
-            fillTypeIndex,
-            fillDelta,
-            remainingDelta,
-            storageChanges,
-            farmId)
     end
+
+    g_aiHelperRefillSourceDebug:recordRemoval(
+        station,
+        fillTypeIndex,
+        fillDelta,
+        remainingDelta,
+        storageChanges,
+        farmId)
 
     return remainingDelta
 end
