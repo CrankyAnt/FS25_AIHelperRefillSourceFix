@@ -36,7 +36,7 @@ The debug script and its `modDesc.xml` source-file entry can be removed without 
 
 Found a bug or compatibility issue? Please open a GitHub issue:
 
-https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
+https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues/new/choose
 
 Please open an issue and include:
 

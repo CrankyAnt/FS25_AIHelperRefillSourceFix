@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a problem with AI Helper Refill Source Fix
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: input
+    id: game-version
+    attributes:
+      label: Game version
+      description: Free text is fine; no exact version format is required.
+      placeholder: "Example: 1.13.0.0, latest Steam version, or version from menu"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - PC
+        - Mac
+    validations:
+      required: true
+  - type: dropdown
+    id: game-mode
+    attributes:
+      label: Game mode
+      options:
+        - Singleplayer
+        - Multiplayer client
+        - Multiplayer server / dedicated server
+    validations:
+      required: true
+  - type: input
+    id: map
+    attributes:
+      label: Map
+      placeholder: "Example: Riverbend Springs"
+    validations:
+      required: true
+  - type: dropdown
+    id: fill-type
+    attributes:
+      label: Fill type involved
+      options:
+        - Slurry / liquid manure
+        - Digestate
+        - Manure
+        - Multiple or not sure
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Selected refill source and observed source
+      description: Tell me what the AI-helper menu showed, what source was selected, and where the helper actually refilled or tried to refill.
+      placeholder: "Example: Selected BGA Farm, helper stopped with Tank is empty, source still had digestate"
+      render: text
+  - type: textarea
+    id: mods
+    attributes:
+      label: Relevant active mods
+      description: List mods that may interact with AI helpers, animals, manure, slurry, digestate, storages, BGAs, or placeables. Please do not upload mod files.
+      render: text
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the issue and what you expected to happen. Please do not upload files here.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log excerpt or full log file
+      description: Paste relevant log lines, or drag and drop the complete log file here. For multiplayer issues, include the server log if available.
