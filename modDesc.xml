@@ -15,10 +15,19 @@
 AI Helper Refill Source Fix
 
 Fixes AI helper refill source selection for slurry, digestate, and manure spreaders.
-It is meant for saves where helpers can refill from farm storages, animal pens, manure heaps, BGAs, or shared sources, but the settings menu does not always match the source the helper actually uses. The mod keeps the selected source synchronized between the menu, the game state, and multiplayer clients.
-It also hides manure sources the active farm cannot access, so helpers do not stop with "Tank is empty!" after selecting a source that looks available but cannot be used.
-For slurry spreaders that already contain digestate, the helper keeps using digestate when digestate is available in the selected slurry source.
-This mod does not add new refill sources or storage capacity. A storage or placeable still needs to be registered by the game as a valid helper refill source.
+
+It is meant for saves where helpers can refill from farm storages, animal pens, manure heaps, BGAs, or shared sources,
+but the settings menu does not always match the source the helper actually uses.
+The mod keeps the selected source synchronized between the menu, the game state, and multiplayer clients.
+
+It also hides manure sources the active farm cannot access,
+so helpers do not stop with "Tank is empty!" after selecting a source that looks available but cannot be used.
+
+For slurry spreaders that already contain digestate, the helper keeps using digestate
+when digestate is available in the selected slurry source.
+
+This mod does not add new refill sources or storage capacity.
+A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 Multiplayer supported.
 PC only, because it is a script mod.
@@ -34,10 +43,19 @@ Version 1.0.0.0
 KI-Helfer Nachfüllquellen-Fix
 
 Behebt die Auswahl von Nachfüllquellen für KI-Helfer bei Gülle-, Gärreste- und Miststreuern.
-Der Mod ist für Spielstände gedacht, in denen Helfer aus Hoflagern, Tierhaltungen, Misthaufen, BGAs oder gemeinsam genutzten Quellen nachfüllen können, das Einstellungsmenü aber nicht immer mit der Quelle übereinstimmt, die der Helfer tatsächlich verwendet. Der Mod hält die ausgewählte Quelle zwischen Menü, Spielstatus und Mehrspieler-Clients synchron.
-Außerdem blendet er Mistquellen aus, auf die der aktive Hof keinen Zugriff hat. Dadurch stoppen Helfer nicht mit „Tank ist leer!“, nachdem eine Quelle ausgewählt wurde, die verfügbar aussieht, aber nicht genutzt werden darf.
-Bei Güllestreuern, die bereits Gärreste enthalten, verwendet der Helfer weiterhin Gärreste, wenn in der ausgewählten Güllequelle Gärreste verfügbar sind.
-Dieser Mod fügt keine neuen Nachfüllquellen und keine zusätzliche Lagerkapazität hinzu. Ein Lager oder platzierbares Objekt muss weiterhin vom Spiel als gültige Helfer-Nachfüllquelle registriert sein.
+
+Der Mod ist für Spielstände gedacht, in denen Helfer aus Hoflagern, Tierhaltungen, Misthaufen, BGAs oder gemeinsam genutzten Quellen nachfüllen können,
+das Einstellungsmenü aber nicht immer mit der Quelle übereinstimmt, die der Helfer tatsächlich verwendet.
+Der Mod hält die ausgewählte Quelle zwischen Menü, Spielstatus und Mehrspieler-Clients synchron.
+
+Außerdem blendet er Mistquellen aus, auf die der aktive Hof keinen Zugriff hat.
+Dadurch stoppen Helfer nicht mit „Tank ist leer!“, nachdem eine Quelle ausgewählt wurde, die verfügbar aussieht, aber nicht genutzt werden darf.
+
+Bei Güllestreuern, die bereits Gärreste enthalten, verwendet der Helfer weiterhin Gärreste,
+wenn in der ausgewählten Güllequelle Gärreste verfügbar sind.
+
+Dieser Mod fügt keine neuen Nachfüllquellen und keine zusätzliche Lagerkapazität hinzu.
+Ein Lager oder platzierbares Objekt muss weiterhin vom Spiel als gültige Helfer-Nachfüllquelle registriert sein.
 
 Mehrspielermodus wird unterstützt.
 Nur für PC, da es sich um einen Script-Mod handelt.
@@ -53,10 +71,19 @@ Version 1.0.0.0
 Correctif des sources de remplissage de l'ouvrier IA
 
 Corrige la sélection des sources de remplissage des ouvriers IA pour les épandeurs de lisier, de digestat et de fumier.
-Ce mod est destiné aux sauvegardes où les ouvriers peuvent se remplir depuis des stockages de ferme, des bâtiments d'animaux, des tas de fumier, des BGA ou des sources partagées, mais où le menu des paramètres ne correspond pas toujours à la source réellement utilisée par l'ouvrier. Le mod synchronise la source sélectionnée entre le menu, l'état du jeu et les clients multijoueur.
-Il masque aussi les sources de fumier auxquelles la ferme active ne peut pas accéder, afin que les ouvriers ne s'arrêtent pas avec « Le réservoir est vide ! » après la sélection d'une source qui semble disponible mais ne peut pas être utilisée.
-Pour les tonnes à lisier qui contiennent déjà du digestat, l'ouvrier continue à utiliser le digestat lorsque du digestat est disponible dans la source de lisier sélectionnée.
-Ce mod n'ajoute pas de nouvelles sources de remplissage ni de capacité de stockage. Un stockage ou objet plaçable doit toujours être enregistré par le jeu comme source de remplissage valide pour les ouvriers.
+
+Ce mod est destiné aux sauvegardes où les ouvriers peuvent se remplir depuis des stockages de ferme, des bâtiments d'animaux, des tas de fumier, des BGA ou des sources partagées,
+mais où le menu des paramètres ne correspond pas toujours à la source réellement utilisée par l'ouvrier.
+Le mod synchronise la source sélectionnée entre le menu, l'état du jeu et les clients multijoueur.
+
+Il masque aussi les sources de fumier auxquelles la ferme active ne peut pas accéder,
+afin que les ouvriers ne s'arrêtent pas avec « Le réservoir est vide ! » après la sélection d'une source qui semble disponible mais ne peut pas être utilisée.
+
+Pour les tonnes à lisier qui contiennent déjà du digestat, l'ouvrier continue à utiliser le digestat
+lorsque du digestat est disponible dans la source de lisier sélectionnée.
+
+Ce mod n'ajoute pas de nouvelles sources de remplissage ni de capacité de stockage.
+Un stockage ou objet plaçable doit toujours être enregistré par le jeu comme source de remplissage valide pour les ouvriers.
 
 Multijoueur pris en charge.
 PC uniquement, car il s'agit d'un mod script.
@@ -72,10 +99,19 @@ Version 1.0.0.0
 AI-helper bijvulbron fix
 
 Verhelpt de selectie van bijvulbronnen voor AI-helpers bij drijfmest-, digestaat- en mestverspreiders.
-Deze mod is bedoeld voor savegames waarin helpers kunnen bijvullen uit boerderijopslag, veestallen, mesthopen, BGA's of gedeelde bronnen, maar waar het instellingenmenu niet altijd overeenkomt met de bron die de helper werkelijk gebruikt. De mod houdt de geselecteerde bron gelijk tussen het menu, de gamestatus en multiplayer-clients.
-Daarnaast verbergt de mod mestbronnen waar de actieve boerderij geen toegang toe heeft. Daardoor stoppen helpers niet met "Tank is leeg!" nadat een bron is geselecteerd die beschikbaar lijkt, maar niet gebruikt mag worden.
-Voor drijfmestverspreiders die al digestaat bevatten, blijft de helper digestaat gebruiken wanneer er digestaat beschikbaar is in de geselecteerde drijfmestbron.
-Deze mod voegt geen nieuwe bijvulbronnen of opslagcapaciteit toe. Een opslag of placeable moet nog steeds door de game zijn geregistreerd als geldige bijvulbron voor helpers.
+
+Deze mod is bedoeld voor savegames waarin helpers kunnen bijvullen uit boerderijopslag, veestallen, mesthopen, BGA's of gedeelde bronnen,
+maar waar het instellingenmenu niet altijd overeenkomt met de bron die de helper werkelijk gebruikt.
+De mod houdt de geselecteerde bron gelijk tussen het menu, de gamestatus en multiplayer-clients.
+
+Daarnaast verbergt de mod mestbronnen waar de actieve boerderij geen toegang toe heeft.
+Daardoor stoppen helpers niet met "Tank is leeg!" nadat een bron is geselecteerd die beschikbaar lijkt, maar niet gebruikt mag worden.
+
+Voor drijfmestverspreiders die al digestaat bevatten, blijft de helper digestaat gebruiken
+wanneer er digestaat beschikbaar is in de geselecteerde drijfmestbron.
+
+Deze mod voegt geen nieuwe bijvulbronnen of opslagcapaciteit toe.
+Een opslag of placeable moet nog steeds door de game zijn geregistreerd als geldige bijvulbron voor helpers.
 
 Multiplayer wordt ondersteund.
 Alleen voor PC, omdat dit een scriptmod is.

@@ -9,10 +9,19 @@ The official download will be available through GIANTS ModHub once published.
 ## What This Mod Does
 
 Fixes AI helper refill source selection for slurry, digestate, and manure spreaders.
-It is meant for saves where helpers can refill from farm storages, animal pens, manure heaps, BGAs, or shared sources, but the settings menu does not always match the source the helper actually uses. The mod keeps the selected source synchronized between the menu, the game state, and multiplayer clients.
-It also hides manure sources the active farm cannot access, so helpers do not stop with "Tank is empty!" after selecting a source that looks available but cannot be used.
-For slurry spreaders that already contain digestate, the helper keeps using digestate when digestate is available in the selected slurry source.
-This mod does not add new refill sources or storage capacity. A storage or placeable still needs to be registered by the game as a valid helper refill source.
+
+It is meant for saves where helpers can refill from farm storages, animal pens, manure heaps, BGAs, or shared sources,
+but the settings menu does not always match the source the helper actually uses.
+The mod keeps the selected source synchronized between the menu, the game state, and multiplayer clients.
+
+It also hides manure sources the active farm cannot access,
+so helpers do not stop with "Tank is empty!" after selecting a source that looks available but cannot be used.
+
+For slurry spreaders that already contain digestate, the helper keeps using digestate
+when digestate is available in the selected slurry source.
+
+This mod does not add new refill sources or storage capacity.
+A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 ## Compatibility
 
