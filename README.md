@@ -2,19 +2,13 @@
 
 AI Helper Refill Source Fix fixes base game issues with AI helper refill sources for slurry, digestate, and manure spreaders in Farming Simulator 25.
 
-## What It Fixes
+## What This Mod Does
 
-The base game stores helper refill sources in internal lists, while the settings menu can display a filtered version of those lists. This can cause the menu to show a different source than the source actually used by the helper.
-
-This mod keeps the refill source shown in the settings menu synchronized with the source actually used by the helper. That prevents helpers from drawing from a different storage than the one selected, or stopping with "Tank is empty!" while the selected source still contains material.
-
-The mod also fixes related helper refill issues:
-
-- Hides manure sources that the active farm cannot access.
-- Keeps multiplayer clients synchronized with the server after loading or joining.
-- Keeps digestate active when a slurry spreader is already using digestate and the selected source can supply it.
-
-The mod does not add new refill sources. A storage or placeable still needs to be registered by the game as a valid helper refill source.
+Fixes AI helper refill source selection for slurry, digestate, and manure spreaders.
+It is meant for saves where helpers can refill from farm storages, animal pens, manure heaps, BGAs, or shared sources, but the settings menu does not always match the source the helper actually uses. The mod keeps the selected source synchronized between the menu, the game state, and multiplayer clients.
+It also hides manure sources the active farm cannot access, so helpers do not stop with "Tank is empty!" after selecting a source that looks available but cannot be used.
+For slurry spreaders that already contain digestate, the helper keeps using digestate when digestate is available in the selected slurry source.
+This mod does not add new refill sources or storage capacity. A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 ## Compatibility
 
