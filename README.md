@@ -2,6 +2,10 @@
 
 AI Helper Refill Source Fix fixes base game issues with AI helper refill sources for slurry, digestate, and manure spreaders in Farming Simulator 25.
 
+## Download
+
+The official download will be available through GIANTS ModHub once published.
+
 ## What This Mod Does
 
 Fixes AI helper refill source selection for slurry, digestate, and manure spreaders.
@@ -28,10 +32,21 @@ aiHelperRefillDebug
 
 The debug script and its `modDesc.xml` source-file entry can be removed without affecting the functional fix.
 
-## Issues
+## Reporting Issues
 
-Report issues on GitHub:
+Found a bug or compatibility issue? Please open a GitHub issue:
+
 https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
+
+Please open an issue and include:
+
+- Farming Simulator 25 game version
+- Platform: PC or Mac
+- Singleplayer or multiplayer
+- Map name
+- Other relevant mods active in the savegame
+- A short description of what happened and what you expected
+- The game log, if the issue involves errors, multiplayer sync, or missing functionality
 
 ## License and Distribution
 
