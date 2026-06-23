@@ -328,6 +328,124 @@ local function filterInaccessibleManureOptions(element)
     element.target.helperManureTextToStationIndexMapping = filteredMapping
     return filteredTexts
 end
+local function getFillLevelFromSourceStorage(station, storage, fillType, farmId)
+    if storage == nil or fillType == nil then
+        return 0
+    end
+
+    if storage.getIsFillTypeSupported ~= nil and not storage:getIsFillTypeSupported(fillType) then
+        return 0
+    end
+
+    if station ~= nil
+        and station.hasFarmAccessToStorage ~= nil
+        and farmId ~= nil
+        and not station:hasFarmAccessToStorage(farmId, storage) then
+        return 0
+    end
+
+    if storage.getFillLevel ~= nil then
+        return storage:getFillLevel(fillType) or 0
+    end
+
+    return 0
+end
+
+local function getStationFillLevel(station, fillType, farmId)
+    if station == nil or fillType == nil then
+        return 0
+    end
+
+    local fillLevel = 0
+
+    for _, storage in pairs(station.sourceStorages or {}) do
+        fillLevel = fillLevel + getFillLevelFromSourceStorage(station, storage, fillType, farmId)
+    end
+
+    return fillLevel
+end
+
+local function stationCanSupplyFillType(station, fillType, farmId)
+    return getStationFillLevel(station, fillType, farmId) > 0.000001
+end
+
+local function getSprayerLastValidFillType(sprayer, fillUnitIndex)
+    if sprayer ~= nil and sprayer.getFillUnitLastValidFillType ~= nil and fillUnitIndex ~= nil then
+        return sprayer:getFillUnitLastValidFillType(fillUnitIndex)
+    end
+
+    return FillType.UNKNOWN
+end
+
+local function getClientExternalSlurryFill(sprayer, inputFillType, dt)
+    if g_currentMission == nil
+        or g_currentMission.missionInfo == nil
+        or g_currentMission.liquidManureLoadingStations == nil
+        or g_currentMission.missionInfo.helperSlurrySource <= 2 then
+        return FillType.UNKNOWN, 0
+    end
+
+    local fillUnitIndex = sprayer:getSprayerFillUnitIndex()
+    local allowsLiquidManure = sprayer:getFillUnitAllowsFillType(fillUnitIndex, FillType.LIQUIDMANURE)
+    local allowsDigestate = sprayer:getFillUnitAllowsFillType(fillUnitIndex, FillType.DIGESTATE)
+
+    if not allowsLiquidManure and not allowsDigestate then
+        return FillType.UNKNOWN, 0
+    end
+
+    local loadingStation = g_currentMission.liquidManureLoadingStations[g_currentMission.missionInfo.helperSlurrySource - 2]
+
+    if loadingStation == nil then
+        return FillType.UNKNOWN, 0
+    end
+
+    local farmId = sprayer:getActiveFarm() or sprayer:getOwnerFarmId()
+    local lastValidFillType = getSprayerLastValidFillType(sprayer, fillUnitIndex)
+    local preferDigestate = inputFillType == FillType.DIGESTATE or lastValidFillType == FillType.DIGESTATE
+
+    if preferDigestate and allowsDigestate and stationCanSupplyFillType(loadingStation, FillType.DIGESTATE, farmId) then
+        return FillType.DIGESTATE, sprayer:getSprayerUsage(FillType.DIGESTATE, dt)
+    end
+
+    if allowsLiquidManure and stationCanSupplyFillType(loadingStation, FillType.LIQUIDMANURE, farmId) then
+        return FillType.LIQUIDMANURE, sprayer:getSprayerUsage(FillType.LIQUIDMANURE, dt)
+    end
+
+    if allowsDigestate and stationCanSupplyFillType(loadingStation, FillType.DIGESTATE, farmId) then
+        return FillType.DIGESTATE, sprayer:getSprayerUsage(FillType.DIGESTATE, dt)
+    end
+
+    return FillType.UNKNOWN, 0
+end
+
+local function getClientExternalManureFill(sprayer, dt)
+    if g_currentMission == nil
+        or g_currentMission.missionInfo == nil
+        or g_currentMission.manureLoadingStations == nil
+        or g_currentMission.missionInfo.helperManureSource <= 2 then
+        return FillType.UNKNOWN, 0
+    end
+
+    local fillUnitIndex = sprayer:getSprayerFillUnitIndex()
+
+    if not sprayer:getFillUnitAllowsFillType(fillUnitIndex, FillType.MANURE) then
+        return FillType.UNKNOWN, 0
+    end
+
+    local loadingStation = g_currentMission.manureLoadingStations[g_currentMission.missionInfo.helperManureSource - 2]
+
+    if loadingStation == nil then
+        return FillType.UNKNOWN, 0
+    end
+
+    local farmId = sprayer:getActiveFarm() or sprayer:getOwnerFarmId()
+
+    if stationCanSupplyFillType(loadingStation, FillType.MANURE, farmId) then
+        return FillType.MANURE, sprayer:getSprayerUsage(FillType.MANURE, dt)
+    end
+
+    return FillType.UNKNOWN, 0
+end
 
 Sprayer.getExternalFill = Utils.overwrittenFunction(Sprayer.getExternalFill, function(self, superFunc, fillType, dt)
     if fillType == FillType.DIGESTATE
@@ -348,7 +466,36 @@ Sprayer.getExternalFill = Utils.overwrittenFunction(Sprayer.getExternalFill, fun
         end
     end
 
-    return superFunc(self, fillType, dt)
+    local externalFillType, usage = superFunc(self, fillType, dt)
+
+    if self.isServer or externalFillType ~= FillType.UNKNOWN then
+        return externalFillType, usage
+    end
+
+    local fillUnitIndex = self:getSprayerFillUnitIndex()
+    local supportsSlurryCategory = self:getFillUnitAllowsFillType(fillUnitIndex, FillType.LIQUIDMANURE)
+        or self:getFillUnitAllowsFillType(fillUnitIndex, FillType.DIGESTATE)
+
+    if fillType == FillType.LIQUIDMANURE
+        or fillType == FillType.DIGESTATE
+        or (fillType == FillType.UNKNOWN and supportsSlurryCategory) then
+        externalFillType, usage = getClientExternalSlurryFill(self, fillType, dt)
+
+        if externalFillType ~= FillType.UNKNOWN then
+            return externalFillType, usage
+        end
+    end
+
+    if fillType == FillType.MANURE
+        or (fillType == FillType.UNKNOWN and self:getFillUnitAllowsFillType(fillUnitIndex, FillType.MANURE)) then
+        externalFillType, usage = getClientExternalManureFill(self, dt)
+
+        if externalFillType ~= FillType.UNKNOWN then
+            return externalFillType, usage
+        end
+    end
+
+    return externalFillType, usage
 end)
 originalSetState = MultiTextOptionElement.setState
 MultiTextOptionElement.setState = function(element, state, forceEvent)
