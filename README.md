@@ -27,7 +27,7 @@ A storage or placeable still needs to be registered by the game as a valid helpe
 
 - Farming Simulator 25
 - Multiplayer supported
-- PC only, because this is a script mod
+- PC and Mac only, because this is a script mod
 
 ## Optional Diagnostics
 

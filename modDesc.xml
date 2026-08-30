@@ -30,7 +30,7 @@ This mod does not add new refill sources or storage capacity.
 A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 Multiplayer supported.
-PC only, because it is a script mod.
+PC and Mac only, because this is a script mod.
 
 Report issues on GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
 
@@ -58,7 +58,7 @@ Dieser Mod fügt keine neuen Nachfüllquellen und keine zusätzliche Lagerkapazi
 Ein Lager oder platzierbares Objekt muss weiterhin vom Spiel als gültige Helfer-Nachfüllquelle registriert sein.
 
 Mehrspielermodus wird unterstützt.
-Nur für PC, da es sich um einen Script-Mod handelt.
+Nur für PC und Mac, da es sich um einen Script-Mod handelt.
 
 Fehlerberichte auf GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
 
@@ -86,7 +86,7 @@ Ce mod n'ajoute pas de nouvelles sources de remplissage ni de capacité de stock
 Un stockage ou objet plaçable doit toujours être enregistré par le jeu comme source de remplissage valide pour les ouvriers.
 
 Multijoueur pris en charge.
-PC uniquement, car il s'agit d'un mod script.
+PC et Mac uniquement, car il s'agit d'un mod script.
 
 Signalez les problèmes sur GitHub : https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
 
@@ -114,7 +114,7 @@ Deze mod voegt geen nieuwe bijvulbronnen of opslagcapaciteit toe.
 Een opslag of placeable moet nog steeds door de game zijn geregistreerd als geldige bijvulbron voor helpers.
 
 Multiplayer wordt ondersteund.
-Alleen voor PC, omdat dit een scriptmod is.
+Alleen voor PC en Mac, omdat dit een scriptmod is.
 
 Meld problemen op GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
 
