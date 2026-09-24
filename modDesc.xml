@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="109" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
+<modDesc descVersion="113" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>CrankyAnt</author>
     <version>1.0.0.0</version>
     <title>
         <en>AI Helper Refill Source Fix</en>
         <de>KI-Helfer Nachfüllquellen-Fix</de>
-        <fr>Correctif des sources de remplissage de l'ouvrier IA</fr>
-        <nl>AI-helper bijvulbron fix</nl>
+        <fr>Correctif Des Sources De Remplissage De L'Ouvrier IA</fr>
+        <nl>AI-Helper Bijvulbron Fix</nl>
     </title>
 
     <description>
@@ -30,13 +30,9 @@ This mod does not add new refill sources or storage capacity.
 A storage or placeable still needs to be registered by the game as a valid helper refill source.
 
 Multiplayer supported.
-PC and Mac only, because this is a script mod.
+PC and Mac only, because it is a script mod.
 
 Report issues on GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
-
-Changelog
-Version 1.0.0.0
-- Initial release
 ]]></en>
         <de>
 <![CDATA[
@@ -61,14 +57,10 @@ Mehrspielermodus wird unterstützt.
 Nur für PC und Mac, da es sich um einen Script-Mod handelt.
 
 Fehlerberichte auf GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
-
-Changelog
-Version 1.0.0.0
-- Erste Veröffentlichung
 ]]></de>
         <fr>
 <![CDATA[
-Correctif des sources de remplissage de l'ouvrier IA
+Correctif Des Sources De Remplissage De L'Ouvrier IA
 
 Corrige la sélection des sources de remplissage des ouvriers IA pour les épandeurs de lisier, de digestat et de fumier.
 Ce mod corrige trois problèmes du système de remplissage des ouvriers IA :
@@ -89,14 +81,10 @@ Multijoueur pris en charge.
 PC et Mac uniquement, car il s'agit d'un mod script.
 
 Signalez les problèmes sur GitHub : https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
-
-Changelog
-Version 1.0.0.0
-- Première version
 ]]></fr>
         <nl>
 <![CDATA[
-AI-helper bijvulbron fix
+AI-Helper Bijvulbron Fix
 
 Verhelpt de selectie van bijvulbronnen voor AI-helpers bij drijfmest-, digestaat- en mestverspreiders.
 Deze mod verhelpt drie basegameproblemen in het bijvulsysteem van AI-helpers:
@@ -117,18 +105,13 @@ Multiplayer wordt ondersteund.
 Alleen voor PC en Mac, omdat dit een scriptmod is.
 
 Meld problemen op GitHub: https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues
-
-Changelog
-Versie 1.0.0.0
-- Eerste release
 ]]></nl>
     </description>
 
-    <iconFilename>icons/icon.dds</iconFilename>
+    <iconFilename>icons/icon_AIHelperRefillSourceFix.dds</iconFilename>
     <multiplayer supported="true" />
 
     <extraSourceFiles>
         <sourceFile filename="scripts/AIHelperRefillSourceFix.lua" />
-        <sourceFile filename="scripts/AIHelperRefillSourceDebug.lua" />
     </extraSourceFiles>
 </modDesc>

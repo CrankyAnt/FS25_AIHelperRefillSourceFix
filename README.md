@@ -2,26 +2,18 @@
 
 AI Helper Refill Source Fix fixes base game issues with AI helper refill sources for slurry, digestate, and manure spreaders in Farming Simulator 25.
 
+> **Status:** Durability-test build available on GitHub; GIANTS ModHub listing pending.
+
 ## Download
 
-The official download will be available through GIANTS ModHub once published.
+- Test build: [v1.0.0.0-test on GitHub](https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/releases/tag/v1.0.0.0-test).
+- The official GIANTS ModHub listing will be linked here once published.
 
 ## What This Mod Does
 
-Fixes AI helper refill source selection for slurry, digestate, and manure spreaders.
-It fixes three base game issues in the AI helper refill system:
-- the settings menu can show one refill source while the helper uses another
-- empty tanks or trailers can be treated as an unknown fill type and stop too early
-- manure sources the active farm cannot access can appear selectable in multiplayer
+Keeps AI helpers refilling from the source you selected. It fixes helpers ignoring the refill source shown in the settings menu, and manure sources that look selectable even though your farm cannot use them.
 
-Use this mod when you want AI helpers to refill from farm storages, animal pens, manure heaps, BGAs, or shared sources as intended.
-The mod keeps the selected source synchronized between the menu, the game state, and multiplayer clients.
-The mod hides inaccessible manure sources, so helpers do not stop with "Tank is empty!" after selecting a source that looks available but cannot be used.
-
-For slurry spreaders that already contain digestate, the helper keeps using digestate when digestate is available in the selected slurry source.
-
-This mod does not add new refill sources or storage capacity.
-A storage or placeable still needs to be registered by the game as a valid helper refill source.
+It covers slurry, digestate, and manure spreaders refilling from farm storages, animal pens, manure heaps, BGAs, or shared sources. It adds no new sources or storage capacity: a storage still needs to be registered by the game as a valid helper refill source.
 
 ## Compatibility
 
@@ -29,17 +21,31 @@ A storage or placeable still needs to be registered by the game as a valid helpe
 - Multiplayer supported
 - PC and Mac only, because this is a script mod
 
-## Optional Diagnostics
+## Installation and Activation
 
-The durability-test build includes `scripts/AIHelperRefillSourceDebug.lua`.
+1. Download the release package from [GitHub Releases](https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/releases).
+2. Place the package in your Farming Simulator 25 mods folder.
+3. Enable the mod for the savegame.
 
-Use the following console command to toggle diagnostics:
+Once published, the GIANTS ModHub listing becomes the preferred install route.
+
+## Diagnostics
+
+Release packages do not include diagnostics. To enable them, download `scripts/AIHelperRefillSourceDebug.lua` from the repository and place it in the `scripts` folder of the installed mod, next to `AIHelperRefillSourceFix.lua`.
+
+Then add the script to `extraSourceFiles` in `modDesc.xml`:
+
+```xml
+<sourceFile filename="scripts/AIHelperRefillSourceDebug.lua" />
+```
+
+Use the following console command to toggle on-screen diagnostics and log output:
 
 ```text
 aiHelperRefillDebug
 ```
 
-The debug script and its `modDesc.xml` source-file entry can be removed without affecting the functional fix.
+The debug script is optional and does not affect the functional fix.
 
 ## Reporting Issues
 
@@ -47,15 +53,17 @@ Found a bug or compatibility issue? Please open a GitHub issue:
 
 https://github.com/CrankyAnt/FS25_AIHelperRefillSourceFix/issues/new/choose
 
-Please open an issue and include:
+Please include:
 
 - Farming Simulator 25 game version
 - Platform: PC or Mac
-- Singleplayer or multiplayer
+- Singleplayer, multiplayer client, or multiplayer server / dedicated server
 - Map name
+- Fill type involved (slurry, digestate, manure)
+- Selected refill source and observed source or error message
 - Other relevant mods active in the savegame
 - A short description of what happened and what you expected
-- The game log, if the issue involves errors, multiplayer sync, or missing functionality
+- The game log, if the issue involves errors, multiplayer sync, or missing functionality; for multiplayer issues, include the server log if available
 
 ## License and Distribution
 
@@ -68,13 +76,4 @@ mod name, icon, branding, descriptions, and release packages are covered by
 the separate CrankyAnt Official Assets License. See
 [DISTRIBUTION.md](DISTRIBUTION.md) for a human-readable explanation.
 
-## Changelog
-
-### Version 1.0.0.0
-
-- Initial test release.
-- Fixes helper refill source menu synchronization for slurry and manure.
-- Filters inaccessible manure sources for the active farm.
-- Synchronizes multiplayer clients with the server after loading or joining.
-- Keeps digestate active when the spreader already uses digestate and the selected source can supply it.
-- Adds optional diagnostics for durability testing.
+## [Changelog](CHANGELOG.md)
