@@ -2,11 +2,15 @@ version = 1
 
 [[annotations]]
 path = [
+    ".github/**",
     ".gitattributes",
     ".gitignore",
+    "AGENTS.md",
+    "CLAUDE.md",
     "LICENSE.md",
     "LICENSES/MIT.txt",
     "REUSE.toml",
+    "docs/**",
     "scripts/**",
 ]
 SPDX-FileCopyrightText = "2026 CrankyAnt"
