@@ -1,6 +1,6 @@
 # FS25_AIHelperRefillSourceFix
 
-AI Helper Refill Source Fix, a Farming Simulator 25 script mod that keeps AI helpers refilling slurry, digestate and manure spreaders from the selected refill source.
+AI Helper Refill Source Fix, a Farming Simulator 25 script mod that keeps AI helpers refilling slurry and manure sprayers from the selected helper source.
 
 ## Agent skills
 
