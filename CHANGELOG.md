@@ -2,11 +2,10 @@
 
 Notable changes to this project are recorded here, newest first.
 
-## v1.0.0.0
+## Unreleased
 
-- Initial ModHub release, following the v1.0.0.0-test durability-test build.
-- modDesc descVersion 113 (game version 1.23.0+).
-- Mod icon renamed to `icons/icon_AIHelperRefillSourceFix.dds`.
+- Prepared as v1.0.0.0 for the GIANTS ModHub release, following the v1.0.0.0-test durability-test build.
+- Requires Farming Simulator 25 game version 1.23.0 or later.
 
 ## v1.0.0.0-test - 2026-06-15
 
