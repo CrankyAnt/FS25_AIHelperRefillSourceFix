@@ -7,6 +7,7 @@ path = [
     ".gitignore",
     "AGENTS.md",
     "CLAUDE.md",
+    "GLOSSARY.md",
     "LICENSE.md",
     "LICENSES/MIT.txt",
     "REUSE.toml",
